@@ -1,10 +1,7 @@
-import Image from 'next/image'
+'use client'
+
+import { useSession } from 'next-auth/react';
 
 export default function Home() {
-  return (
-    <div>
-      <h1>Hello Next.js!</h1>
-      <Image src="/logo.svg" alt="logo" width={100} height={100} />
-    </div>
-  )
+  return <div></div>;
 }
