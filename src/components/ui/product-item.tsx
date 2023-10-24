@@ -1,8 +1,8 @@
-import { Product } from "@prisma/client";
+import { ProductWithTotalPrice } from "@/helpers/product";
 import Image from "next/image"
 
 interface ProductItemProps {
-    product: Product
+    product: ProductWithTotalPrice
 }
 
 const ProductItem = ({product}: ProductItemProps) => {
@@ -23,6 +23,20 @@ const ProductItem = ({product}: ProductItemProps) => {
 
         <div>
             <p className="w-full text-sm overflow-hidden whitespace-nowrap text-ellipsis">{product.name}</p>
+
+            <div className="flex items-center gap-2">
+                {product.discountPercentage > 0 ?(
+                    <>
+                      <p className="font-semibold text-sm">R$ {product.totalPrice.toFixed(2)}</p>
+
+                       <p className="opacity-75 line-through text-xs"> R$ {Number(product.basePrice).toFixed(2)}</p>
+                    </>
+                
+                ) : (
+                    <p className="font-semibold text-sm">R$ {product.basePrice.toFixed(2)}</p>
+                )} 
+
+            </div>
         </div>
     </div>);
 }
