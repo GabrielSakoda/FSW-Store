@@ -9,9 +9,9 @@ export default async function Home() {
     where: {
       discountPercentage: {
         gt: 0,
-      }
-    }
-  })
+      },
+    },
+  });
 
   return <div>
     <Image
