@@ -3,7 +3,6 @@
 import { Button } from "@/components/ui/button";
 import DiscountBadge from "@/components/ui/discount-badge";
 import { ProductWithTotalPrice } from "@/helpers/product";
-import { Product } from "@prisma/client";
 import { ArrowDownIcon, ArrowLeftIcon, ArrowRightIcon, TruckIcon } from "lucide-react";
 import { useState } from "react";
 
@@ -38,7 +37,7 @@ const ProductInfo = ({product: {basePrice, totalPrice, description, discountPerc
                 <h1 className="text-xl font-bold">R$ {totalPrice.toFixed(2)}</h1>
                 {discountPercentage > 0 && (
                     <DiscountBadge>
-                        <ArrowDownIcon size={14}/> {discountPercentage}%
+                      {discountPercentage}
                     </DiscountBadge>
                 )}
             </div>
